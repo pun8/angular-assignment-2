@@ -1,0 +1,25 @@
+td[scope="row"] {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+form {
+  background-color: #272b35be;
+  color: white;
+  border-radius: 15px 
+}
+
+.front-image{
+   margin-top: -10px;
+}
+.image-right{
+   padding-left:55px
+}
+.col-4{
+      display: flex;
+      align-items: center;
+}
+.btn-primary{
+   background-color: #f9633a !important;
+   border-color: #f9633a !important;
+}

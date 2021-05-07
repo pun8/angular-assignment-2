@@ -1,0 +1,20 @@
+<div class="table-responsive">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col" *ngFor="let head of thead">{{head}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.name}}</td>
+                <td><img [src]="user.photo" height="100"></td>
+                <td>{{user.gender}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.category}}</td>
+                <td>{{user.technologies}}</td>
+            </tr>
+        </tbody>
+    </table>
+ </div>

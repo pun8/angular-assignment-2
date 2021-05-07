@@ -1,0 +1,143 @@
+<div class="row justify-content-between">
+
+  <div class="d-none d-lg-block col-3 front-image image-left">
+    <img src="../../../assets/img/one.png" alt="" srcset="">
+  </div>
+
+  <div class="col-lg-6 col-md-9">
+    <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewModalTitle">User details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center py-2">
+              <img [src]="createUser.value.photo" class="rounded-circle" height="100" />
+            </div>
+            <table class="table table-bordered">
+              <tr>
+                <td scope="row">Name</td>
+                <td>{{ createUser.value.name }}</td>
+              </tr>
+              <tr>
+                <td scope="row">Gender</td>
+                <td>{{ createUser.value.gender }}</td>
+              </tr>
+              <tr>
+                <td scope="row">Email</td>
+                <td>{{ createUser.value.email }}</td>
+              </tr>
+              <tr>
+                <td scope="row">Mobile</td>
+                <td>{{ createUser.value.mobile }}</td>
+              </tr>
+              <tr>
+                <td scope="row">Category</td>
+                <td>{{ createUser.value.category }}</td>
+              </tr>
+              <tr>
+                <td scope="row">Technologies</td>
+                <td>{{ createUser.value.technologies }}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="" (click)="onSubmit()" class="btn btn-primary" data-dismiss="modal">
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="p-4" id="createUserForm" [formGroup]="createUser">
+      <div class="form-group row">
+        <label for="fullname" class="col-4">Name</label>
+        <input type="text" class="form-control col-7" name="fullName" id="fullName" placeholder="Enter Name"
+          formControlName="name" />
+      </div>
+
+      <div class="form-group row">
+        <label class="col-4">Gender</label>
+        <div class="form-check form-check-inline ml-1">
+          <input type="radio" class="form-check-input " name="gender" id="male" value="Male" formControlName="gender" />
+          <label class="col-4" class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" name="gender" id="female" value="Female"
+            formControlName="gender" />
+          <label class="col-4" class="form-check-label" for="male">Female</label>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-4" for="email">Email address</label>
+        <input type="email" class="form-control col-7" id="email" placeholder="Enter Email Address"
+          formControlName="email" />
+      </div>
+
+      <div class="form-group row">
+        <label class="col-4" for="mobile">Mobile</label>
+        <input type="text" class="form-control col-7" id="mobile" placeholder="Enter Mobile Number"
+          formControlName="mobile" />
+      </div>
+
+      <div class="form-group row">
+        <label class="col-4" for="category">Category</label>
+        <select class="form-control col-7" name="category" id="category" formControlName="category">
+          <option value="" disabled selected>Select your option</option>
+          <option value="General">General</option>
+          <option value="SC">SC</option>
+          <option value="ST">ST</option>
+          <option value="OBC">OBC</option>
+        </select>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-4 mr-3">Technologies</label>
+        <!-- <div class="col-7"> -->
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="C" id="C" (change)="saveTech($event)" />
+          <label class="col-4" class="form-check-label" for="C">C</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="C++" id="C++" (change)="saveTech($event)" />
+          <label class="col-4" class="form-check-label" for="C++">C++</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="Python" id="python" (change)="saveTech($event)" />
+          <label class="col-4" class="form-check-label" for="python">Python</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="Javascript" id="javascript"
+            (change)="saveTech($event)" />
+          <label class="col-4" class="form-check-label" for="javascript">Javascript</label>
+        </div>
+        <!-- </div> -->
+      </div>
+
+      <div class="form-group row">
+        <label class="col-4" for="photo">Photo</label>
+        <input type="file" class="form-control-file col-7" id="photo" accept="image/png, image/jpeg, image/jpg"
+          (change)="imgToBase64()" />
+      </div>
+
+      <button type="button" data-toggle="modal" data-target="#previewModal" [disabled]="!createUser.valid"
+        class="btn btn-primary">
+        Preview
+      </button>
+    </form>
+  </div>
+
+  <div class="d-none d-md-block col-3 front-image image-right">
+    <img src="../../../assets/img/one2.png" alt="" srcset="">
+  </div>
+</div>
